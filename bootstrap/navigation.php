@@ -67,12 +67,13 @@ class Navigation {
 		} 
 	}
 
+	# Render menu
 	function renderMenu()
 	{
 		global $db;
 		$items = getMenu();
 		if(empty($items)) { 
-			echo lang("CORE_MENU_EMPTY"); 
+			echo "Your menu is empty!";
 		} else {
 			foreach( $items as $item ) {
 		?>

@@ -71,7 +71,7 @@ class Navigation {
 	function renderMenu()
 	{
 		global $db;
-		$items = getMenu();
+		$items = $this->getMenu();
 		if(empty($items)) 
 		{ 
 			echo "Your menu is empty!";

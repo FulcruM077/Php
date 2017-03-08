@@ -72,25 +72,28 @@ class Navigation {
 	{
 		global $db;
 		$items = getMenu();
-		if(empty($items)) { 
+		if(empty($items)) 
+		{ 
 			echo "Your menu is empty!";
-		} else {
-			foreach( $items as $item ) {
-		?>
-			<li<?php if($this->checkSub($item['id'])): ?> class="dropdown"<?php endif ?>>
-			<a href="<?=$item['slug']?>"<?php if($this->checkSub($item['id'])): ?> class="dropdown-toggle" data-toggle="dropdown"<?php endif ?>>
-			 <?=$item['title']?></a>
-				<?php if($this->checkSub($item['id'])): ?>
-					<ul class="dropdown-menu">
-					<? $subItems = $this->getSub($item['id']);
-						foreach($subItems as $sub) { ?>
-						<li><a href="<?=$sub['slug']?>"><?=$sub['title']?></a></li>
-						<? } ?>
-					</ul> 
-			<?php endif ?>
-			</li>
-		<?php
-		} }
+		} 
+		else 
+		{
+			foreach( $items as $item ) 
+			{ ?>
+				<li<?php if($this->checkSub($item['id'])): ?> class="dropdown"<?php endif ?>>
+					<a href="<?=$item['slug']?>"<?php if($this->checkSub($item['id'])): ?> class="dropdown-toggle" data-toggle="dropdown"<?php endif ?>>
+					 <?=$item['title']?></a>
+						<?php if($this->checkSub($item['id'])): ?>
+							<ul class="dropdown-menu">
+							<? $subItems = $this->getSub($item['id']);
+								foreach($subItems as $sub) { ?>
+								<li><a href="<?=$sub['slug']?>"><?=$sub['title']?></a></li>
+								<? } ?>
+							</ul> 
+					<?php endif ?>
+				</li>
+			<?php
+			} 
+		}
 	}
-
 }
